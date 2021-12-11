@@ -30,6 +30,14 @@ class _HomePageState extends State<HomePage> {
                 ),
                 color: Color(0xff4AA366),
                 borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromRGBO(26, 59, 52, 0.4),
+                    spreadRadius: 0,
+                    blurRadius: 33,
+                    offset: Offset(0, 10), // changes position of shadow
+                  ),
+                ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,30 +54,36 @@ class _HomePageState extends State<HomePage> {
                     height: 7,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        child: Text(
-                          "55,35 TL",
-                          style: TextStyle(
-                            color: Color(0xffffffff),
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
                       Text(
-                        "Yükleme yap",
+                        "55,35 TL",
                         style: TextStyle(
                           color: Color(0xffffffff),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(width: 5),
-                      Icon(
-                        Icons.arrow_forward,
-                        size: 20,
-                        color: Color(0xffffffff),
+                      TextButton(
+                        onPressed: () {},
+                        child: Row(
+                          children: [
+                            Text(
+                              "Yükleme yap",
+                              style: TextStyle(
+                                color: Color(0xffffffff),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Icon(
+                              Icons.arrow_forward,
+                              size: 20,
+                              color: Color(0xffffffff),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -160,16 +174,18 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 18,
                         ),
-                        InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 16),
-                            decoration: BoxDecoration(
-                              color: Color(0xffDFE4EC),
-                              borderRadius: BorderRadius.circular(4),
+                        Ink(
+                          decoration: BoxDecoration(
+                            color: Color(0xffDFE4EC),
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 16),
+                              child: Text("Detaylar"),
                             ),
-                            child: Text("Detaylar"),
                           ),
                         ),
                       ],
@@ -189,6 +205,14 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(40),
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.05),
+                      spreadRadius: 0,
+                      blurRadius: 30,
+                      offset: Offset(0, -15),
+                    ),
+                  ],
                 ),
                 child: Column(
                   children: [
@@ -203,6 +227,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Expanded(
                       child: ListView.builder(
+                          controller: ScrollController(),
                           scrollDirection: Axis.vertical,
                           itemCount: 3,
                           itemBuilder: (BuildContext context, int index) {

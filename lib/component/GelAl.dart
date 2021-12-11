@@ -49,7 +49,7 @@ class _GelAlState extends State<GelAl> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (item.title != "")
+                        if (item.title != "") ...[
                           Text(
                             item.title,
                             style: TextStyle(
@@ -57,9 +57,10 @@ class _GelAlState extends State<GelAl> {
                               color: Color(0xff6F8094),
                             ),
                           ),
-                        SizedBox(
-                          height: item.title != "" ? 6.5 : 0,
-                        ),
+                          SizedBox(
+                            height: 6.5,
+                          ),
+                        ],
                         Row(
                           children: [
                             Image.asset(

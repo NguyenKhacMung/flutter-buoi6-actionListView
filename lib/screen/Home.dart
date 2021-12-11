@@ -65,6 +65,7 @@ class _HomeState extends State<Home> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: onTabTapped,
+          backgroundColor: Colors.white,
         ),
       ),
     );

@@ -51,6 +51,7 @@ class _OrderState extends State<Order> {
                     ),
                     Expanded(
                       child: ListView.builder(
+                          controller: ScrollController(),
                           itemCount: itemMenus.length,
                           itemBuilder: (BuildContext context, int index) {
                             final item = itemMenus[index];
