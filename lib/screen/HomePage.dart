@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:session6/component/AppBar.dart';
 
@@ -94,11 +95,62 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  Image.asset(
-                    "assets/images/Chart.png",
-                    width: 125,
+                  // Image.asset(
+                  //   "assets/images/Chart.png",
+                  //   width: 125,
+                  //   height: 125,
+                  //   fit: BoxFit.cover,
+                  // ),
+                  Container(
                     height: 125,
-                    fit: BoxFit.cover,
+                    width: 125,
+                    child: Stack(
+                      children: [
+                        PieChart(
+                          PieChartData(
+                            sectionsSpace: 0,
+                            startDegreeOffset: -90,
+                            sections: [
+                              PieChartSectionData(
+                                color: Color(0xff1D4D4F).withOpacity(0.6),
+                                value: 50,
+                                radius: 8,
+                                showTitle: false,
+                              ),
+                              PieChartSectionData(
+                                color: Colors.transparent,
+                                value: 20,
+                                radius: 13,
+                                title: "6/15",
+                                titleStyle: TextStyle(
+                                  color: Color(0xff1D4D4F),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                                titlePositionPercentageOffset: -0.05,
+                              ),
+                              PieChartSectionData(
+                                color: Color(0xff1D4D4F),
+                                value: 50,
+                                radius: 13,
+                                showTitle: false,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned.fill(
+                          child: InkWell(
+                            onTap: () {},
+                            child: Image.asset(
+                              "assets/images/chart2.png",
+                              // width: 60,
+                              // height: 62,
+                              // fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: Column(
