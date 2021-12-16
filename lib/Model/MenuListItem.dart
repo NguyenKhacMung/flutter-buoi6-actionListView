@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:session6/route/path.dart';
+import 'package:session6/screen/Detail.dart';
 
 class listItem extends StatefulWidget {
   const listItem({
@@ -167,7 +169,8 @@ class _listItemState extends State<listItem> {
                       ),
                       InkWell(
                         onTap: () {
-                          changeAction();
+                          // changeAction();
+                          Navigator.pushNamed(context, detail);
                         },
                         child: Container(
                           height: 30,

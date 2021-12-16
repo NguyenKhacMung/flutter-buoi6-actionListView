@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           // centerTitle: true,
         ),
       ),
-      initialRoute: home,
+      initialRoute: completed,
       routes: routes,
     );
   }
