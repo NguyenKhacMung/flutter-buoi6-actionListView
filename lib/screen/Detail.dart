@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:session6/Model/MenuListItem.dart';
 import 'package:session6/component/AppBar.dart';
 import 'package:session6/component/GelAl.dart';
+import 'package:session6/component/ItemsDetail.dart';
 import 'package:session6/component/btn.dart';
 import 'package:session6/constants.dart';
 import 'package:session6/route/path.dart';
@@ -15,8 +17,23 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
+  List<item> items = [
+    item(
+      icon: "assets/images/time.png",
+      title: "Paketinizi alma zamanı",
+      subTitle: "13:00",
+      value: "Değiştir",
+    ),
+    item(
+      icon: "assets/images/house.png",
+      title: "",
+      subTitle: "Kadıköy, İstanbul",
+      value: "Değiştir",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
+    bool toggle = false;
     return Scaffold(
       appBar: appBar(
         title: "Sipariş Detayı",
@@ -30,7 +47,9 @@ class _DetailState extends State<Detail> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    GelAl(),
+                    GelAl(
+                      items: items,
+                    ),
                     SizedBox(
                       height: 7,
                     ),
@@ -67,10 +86,13 @@ class _DetailState extends State<Detail> {
                               ],
                             ),
                           ),
-                          listItem(
+                          ItemsDetail(
                             img: "assets/images/im1.png",
                             title: "Hazelnut Coffee",
                             size: "20 TL",
+                            ok: () {
+                              Navigator.pushNamed(context, menuDetail);
+                            },
                           ),
                           SizedBox(
                             height: 30,
@@ -122,25 +144,32 @@ class _DetailState extends State<Detail> {
                       child: Column(
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
                                 "Ödeme Şekli",
                                 style: heading,
                               ),
-                              Spacer(),
-                              Text(
-                                "Yükleme yap",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                  color: darkGreen,
+                              TextButton(
+                                onPressed: () {},
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Yükleme yap",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: darkGreen,
+                                      ),
+                                    ),
+                                    SizedBox(width: 5),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      size: 20,
+                                      color: darkGreen,
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              SizedBox(width: 5),
-                              Icon(
-                                Icons.arrow_forward,
-                                size: 20,
-                                color: darkGreen,
                               ),
                             ],
                           ),
@@ -196,6 +225,14 @@ class _DetailState extends State<Detail> {
                                 child: Column(
                                   children: [
                                     Text("Kredi Banka Kartı"),
+                                    Container(
+                                      height: 10,
+                                      child: CupertinoSwitch(
+                                        activeColor: Color(0xfffe734c),
+                                        value: !toggle,
+                                        onChanged: (bool value) {},
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

@@ -23,7 +23,9 @@ class _OrderState extends State<Order> {
       body: SafeArea(
         child: Column(
           children: [
-            GelAl(),
+            GelAl(
+              items: items,
+            ),
             SizedBox(
               height: 7,
             ),
@@ -73,6 +75,20 @@ class _OrderState extends State<Order> {
   }
 }
 
+List<item> items = [
+  item(
+    icon: "assets/images/time.png",
+    title: "Paketinizi alma zamanı",
+    subTitle: "13:00",
+    value: "Değiştir",
+  ),
+  item(
+    icon: "assets/images/house.png",
+    title: "",
+    subTitle: "Kadıköy, İstanbul",
+    value: "Değiştir",
+  ),
+];
 List<itemMenu> itemMenus = [
   itemMenu(
     img: "assets/images/im1.png",

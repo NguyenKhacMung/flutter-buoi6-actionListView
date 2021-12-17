@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GelAl extends StatefulWidget {
-  const GelAl({
-    Key? key,
-  }) : super(key: key);
+  const GelAl({Key? key, required this.items}) : super(key: key);
+  final List<item> items;
 
   @override
   _GelAlState createState() => _GelAlState();
@@ -34,9 +33,9 @@ class _GelAlState extends State<GelAl> {
           Expanded(
             child: ListView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: items.length,
+                itemCount: widget.items.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final item = items[index];
+                  final item = widget.items[index];
                   return Container(
                     padding: EdgeInsets.symmetric(
                         horizontal: 11, vertical: item.title == "" ? 17 : 11),
@@ -117,18 +116,3 @@ class item {
     required this.value,
   });
 }
-
-List<item> items = [
-  item(
-    icon: "assets/images/time.png",
-    title: "Paketinizi alma zamanı",
-    subTitle: "13:00",
-    value: "Değiştir",
-  ),
-  item(
-    icon: "assets/images/house.png",
-    title: "",
-    subTitle: "Kadıköy, İstanbul",
-    value: "Değiştir",
-  ),
-];

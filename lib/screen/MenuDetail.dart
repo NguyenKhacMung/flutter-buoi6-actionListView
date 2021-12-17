@@ -29,7 +29,7 @@ class _MenuDetailState extends State<MenuDetail> {
   Widget build(BuildContext context) {
     List<String> img = [
       'assets/images/S.png',
-      'assets/images/M.png',
+      'assets/images/img1.png',
       'assets/images/L.png',
     ];
     return Scaffold(
@@ -117,7 +117,7 @@ class _MenuDetailState extends State<MenuDetail> {
                   Row(
                     children: [
                       Container(
-                        width: 182,
+                        width: MediaQuery.of(context).size.width * 0.5 - 28,
                         padding: EdgeInsets.symmetric(
                             horizontal: 14, vertical: 11.5),
                         decoration: BoxDecoration(
@@ -158,9 +158,7 @@ class _MenuDetailState extends State<MenuDetail> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
+                      Spacer(),
                       for (int i = 0; i < img.length; i++) ...[
                         InkWell(
                           onTap: () {
@@ -171,6 +169,7 @@ class _MenuDetailState extends State<MenuDetail> {
                           child: Container(
                             height: 40,
                             width: 42,
+                            padding: EdgeInsets.all(5),
                             decoration: BoxDecoration(
                               color: i == active
                                   ? darkGreen.withOpacity(0.4)
@@ -181,7 +180,10 @@ class _MenuDetailState extends State<MenuDetail> {
                                 color: i == active ? darkGreen : buttonGrey,
                               ),
                             ),
-                            child: Image.asset(img[i]),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Image.asset(img[i]),
+                            ),
                           ),
                         ),
                         if (i < img.length - 1)

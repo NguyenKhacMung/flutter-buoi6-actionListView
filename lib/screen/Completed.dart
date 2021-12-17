@@ -37,7 +37,14 @@ class _CompletedState extends State<Completed> {
             SizedBox(
               height: 30,
             ),
-            Text("Bizden sipariş verdiğiniz için teşekkürler!"),
+            Text(
+              "Bizden sipariş verdiğiniz için teşekkürler!",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: darkColor,
+              ),
+            ),
             SizedBox(
               height: 45,
             ),
@@ -161,6 +168,24 @@ class _CompletedState extends State<Completed> {
                             ),
                             Row(
                               children: [
+                                Container(
+                                  width: 110,
+                                  height: 6,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                        color: darkGreen,
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                    ),
+                                  ),
+                                ),
                                 SizedBox(
                                   width: 17,
                                 ),
@@ -208,7 +233,7 @@ class _CompletedState extends State<Completed> {
               child: btn(
                 text: "Öde",
                 function: () {
-                  Navigator.pushNamed(context, menuDetail);
+                  Navigator.pop(context);
                 },
               ),
             ),
