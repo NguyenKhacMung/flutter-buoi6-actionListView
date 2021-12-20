@@ -5,6 +5,7 @@ import 'package:session6/component/MenuListItem.dart';
 import 'package:session6/component/TabMenu.dart';
 import 'package:session6/component/AppBar.dart';
 import 'package:session6/component/GelAl.dart';
+import 'package:session6/route/path.dart';
 
 class Order extends StatefulWidget {
   const Order({Key? key}) : super(key: key);
@@ -63,6 +64,13 @@ class _OrderState extends State<Order> {
                               img: item.img,
                               size: item.size,
                               title: item.title,
+                              ok: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  detail,
+                                  arguments: item,
+                                );
+                              },
                             );
                           }),
                     ),

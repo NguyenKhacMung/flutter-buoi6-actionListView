@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:session6/Model/DataGelAl.dart';
+import 'package:session6/Model/DataProducts.dart';
 import 'package:session6/component/AppBar.dart';
 import 'package:session6/component/GelAl.dart';
 import 'package:session6/component/ItemsDetail.dart';
@@ -20,11 +21,14 @@ class _DetailState extends State<Detail> {
   bool toggle = true;
   @override
   Widget build(BuildContext context) {
+    final itemMenus = ModalRoute.of(context)!.settings.arguments as itemMenu;
     return Scaffold(
       appBar: appBar(
         title: "Sipariş Detayı",
         more: () {},
-        notification: () {},
+        notification: () {
+          print(itemMenus.id);
+        },
       ),
       body: SafeArea(
         child: Column(
@@ -73,9 +77,9 @@ class _DetailState extends State<Detail> {
                             ),
                           ),
                           ItemsDetail(
-                            img: "assets/images/im1.png",
-                            title: "Hazelnut Coffee",
-                            size: "20 TL",
+                            img: itemMenus.img,
+                            title: itemMenus.title,
+                            size: itemMenus.size,
                             ok: () {
                               Navigator.pushNamed(context, menuDetail);
                             },

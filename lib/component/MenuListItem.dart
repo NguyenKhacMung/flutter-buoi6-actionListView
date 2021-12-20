@@ -7,11 +7,13 @@ class listItem extends StatefulWidget {
     required this.img,
     required this.title,
     required this.size,
+    required this.ok,
   }) : super(key: key);
 
   final String img;
   final String title;
   final String size;
+  final Function ok;
   @override
   _listItemState createState() => _listItemState();
 }
@@ -158,18 +160,18 @@ class _listItemState extends State<listItem> {
                               select = newValue!;
                             });
                           },
-                          items: dropDown.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                          items: dropDown
+                              .map((String value) => DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  ))
+                              .toList(),
                         ),
                       ),
                       InkWell(
                         onTap: () {
                           // changeAction();
-                          Navigator.pushNamed(context, detail);
+                          widget.ok();
                         },
                         child: Container(
                           height: 30,
