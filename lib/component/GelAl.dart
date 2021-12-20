@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:session6/Model/DataGelAl.dart';
 
 class GelAl extends StatefulWidget {
   const GelAl({Key? key, required this.items}) : super(key: key);
@@ -101,18 +102,4 @@ class _GelAlState extends State<GelAl> {
       ),
     );
   }
-}
-
-class item {
-  final String icon;
-  final String title;
-  final String subTitle;
-  final String value;
-
-  item({
-    required this.icon,
-    required this.title,
-    required this.subTitle,
-    required this.value,
-  });
 }

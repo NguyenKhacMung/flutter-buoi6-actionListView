@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:session6/Model/MenuListItem.dart';
-import 'package:session6/Model/TabMenu.dart';
+import 'package:session6/Model/DataGelAl.dart';
+import 'package:session6/Model/DataProducts.dart';
+import 'package:session6/component/MenuListItem.dart';
+import 'package:session6/component/TabMenu.dart';
 import 'package:session6/component/AppBar.dart';
 import 'package:session6/component/GelAl.dart';
 
@@ -73,68 +75,4 @@ class _OrderState extends State<Order> {
       ),
     );
   }
-}
-
-List<item> items = [
-  item(
-    icon: "assets/images/time.png",
-    title: "Paketinizi alma zamanı",
-    subTitle: "13:00",
-    value: "Değiştir",
-  ),
-  item(
-    icon: "assets/images/house.png",
-    title: "",
-    subTitle: "Kadıköy, İstanbul",
-    value: "Değiştir",
-  ),
-];
-List<itemMenu> itemMenus = [
-  itemMenu(
-    img: "assets/images/im1.png",
-    title: "Hazelnut Coffee",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im2.png",
-    title: "Caramel Frappucino",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im1.png",
-    title: "Caramel Frappucino",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im3.png",
-    title: "Mocha Frappuccino",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im4.png",
-    title: "Espresso Frappuccino",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im1.png",
-    title: "Caramel Frappucino",
-    size: "20 TL",
-  ),
-  itemMenu(
-    img: "assets/images/im3.png",
-    title: "Mocha Frappuccino",
-    size: "20 TL",
-  ),
-];
-
-class itemMenu {
-  final String img;
-  final String title;
-  final String size;
-
-  itemMenu({
-    required this.img,
-    required this.title,
-    required this.size,
-  });
 }

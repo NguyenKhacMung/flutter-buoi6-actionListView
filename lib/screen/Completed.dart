@@ -233,7 +233,8 @@ class _CompletedState extends State<Completed> {
               child: btn(
                 text: "Öde",
                 function: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, home, (route) => false);
                 },
               ),
             ),

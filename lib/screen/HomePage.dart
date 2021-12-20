@@ -412,8 +412,7 @@ class _HomePageState extends State<HomePage> {
                 minChildSize: 0.2,
                 maxChildSize: 0.7,
                 initialChildSize: 0.3,
-                builder:
-                    (BuildContext context, ScrollController scrollController) {
+                builder: (BuildContext context, scrollController) {
                   return Container(
                     padding: EdgeInsets.symmetric(horizontal: 18),
                     decoration: BoxDecoration(

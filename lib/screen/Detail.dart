@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:session6/Model/MenuListItem.dart';
+import 'package:session6/Model/DataGelAl.dart';
 import 'package:session6/component/AppBar.dart';
 import 'package:session6/component/GelAl.dart';
 import 'package:session6/component/ItemsDetail.dart';
@@ -17,23 +17,9 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
-  List<item> items = [
-    item(
-      icon: "assets/images/time.png",
-      title: "Paketinizi alma zamanı",
-      subTitle: "13:00",
-      value: "Değiştir",
-    ),
-    item(
-      icon: "assets/images/house.png",
-      title: "",
-      subTitle: "Kadıköy, İstanbul",
-      value: "Değiştir",
-    ),
-  ];
+  bool toggle = true;
   @override
   Widget build(BuildContext context) {
-    bool toggle = false;
     return Scaffold(
       appBar: appBar(
         title: "Sipariş Detayı",
@@ -190,6 +176,9 @@ class _DetailState extends State<Detail> {
                                   color: Color(0xff4AA366),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
+                                constraints: BoxConstraints(
+                                  minHeight: 100,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -216,22 +205,42 @@ class _DetailState extends State<Detail> {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 19, vertical: 18),
+                                padding: EdgeInsets.only(
+                                  left: 19,
+                                  right: 19,
+                                  top: 18,
+                                ),
                                 decoration: BoxDecoration(
                                   color: Color(0xffDFE4EC),
                                   borderRadius: BorderRadius.circular(20),
                                 ),
+                                constraints: BoxConstraints(
+                                  minHeight: 100,
+                                ),
                                 child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text("Kredi Banka Kartı"),
-                                    Container(
-                                      height: 10,
-                                      child: CupertinoSwitch(
-                                        activeColor: Color(0xfffe734c),
-                                        value: !toggle,
-                                        onChanged: (bool value) {},
+                                    Text(
+                                      "Kredi Banka Kartı",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: darkColor,
                                       ),
+                                    ),
+                                    CupertinoSwitch(
+                                      activeColor: Colors.white,
+                                      thumbColor:
+                                          toggle ? Colors.grey : Colors.amber,
+                                      trackColor: Colors.green,
+                                      value: toggle,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          toggle = value;
+                                        });
+                                      },
                                     ),
                                   ],
                                 ),
