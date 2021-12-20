@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+String pathImage = "assets/images/";
 final primaryColor = Color(0xff4AA366);
 final darkColor = Color(0xff2E2D38);
 final darkGreen = Color(0xff1D4D4F);

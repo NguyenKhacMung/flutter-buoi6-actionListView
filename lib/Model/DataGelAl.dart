@@ -1,12 +1,14 @@
+import 'package:session6/constants.dart';
+
 List<item> items = [
   item(
-    icon: "assets/images/time.png",
+    icon: pathImage + "time.png",
     title: "Paketinizi alma zamanı",
     subTitle: "13:00",
     value: "Değiştir",
   ),
   item(
-    icon: "assets/images/house.png",
+    icon: pathImage + "house.png",
     title: "",
     subTitle: "Kadıköy, İstanbul",
     value: "Değiştir",

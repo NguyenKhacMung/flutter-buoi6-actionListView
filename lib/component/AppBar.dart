@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:session6/constants.dart';
 
 class appBar extends StatelessWidget with PreferredSizeWidget {
   const appBar({
@@ -30,7 +31,7 @@ class appBar extends StatelessWidget with PreferredSizeWidget {
             notification();
           },
           icon: Image.asset(
-            "assets/images/nt.png",
+            pathImage + "nt.png",
           ),
         ),
         Padding(

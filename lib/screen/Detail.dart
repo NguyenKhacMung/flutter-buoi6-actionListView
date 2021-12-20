@@ -174,7 +174,7 @@ class _DetailState extends State<Detail> {
                                     horizontal: 19, vertical: 18),
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage("assets/images/bg.png"),
+                                    image: AssetImage(pathImage + "bg.png"),
                                     alignment: Alignment(-1, 0),
                                   ),
                                   color: Color(0xff4AA366),

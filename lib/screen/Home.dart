@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:session6/constants.dart';
 import 'package:session6/route/path.dart';
 import 'package:session6/screen/HomePage.dart';
 import 'package:session6/screen/Order.dart';
@@ -13,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController(initialPage: 1);
+  final PageController _pageController = PageController(initialPage: 0);
 
   void _onItemTapped(int index) {
     setState(() {
@@ -27,10 +28,10 @@ class _HomeState extends State<Home> {
   }
 
   List<String> icons = [
-    "assets/images/tab1.png",
-    "assets/images/tab2.png",
-    "assets/images/tab3.png",
-    "assets/images/tab4.png",
+    "tab1.png",
+    "tab2.png",
+    "tab3.png",
+    "tab4.png",
   ];
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class _HomeState extends State<Home> {
             icons.length,
             (index) => BottomNavigationBarItem(
               icon: Image.asset(
-                icons[index],
+                pathImage + icons[index],
                 color: _selectedIndex == index
                     ? Color(0xff4AA366)
                     : Color(0xff6F8094),

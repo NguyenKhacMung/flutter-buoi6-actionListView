@@ -28,9 +28,9 @@ class _MenuDetailState extends State<MenuDetail> {
   @override
   Widget build(BuildContext context) {
     List<String> img = [
-      'assets/images/S.png',
-      'assets/images/img1.png',
-      'assets/images/L.png',
+      'S.png',
+      'img1.png',
+      'L.png',
     ];
     return Scaffold(
       appBar: appBar(
@@ -182,7 +182,7 @@ class _MenuDetailState extends State<MenuDetail> {
                             ),
                             child: Align(
                               alignment: Alignment.bottomCenter,
-                              child: Image.asset(img[i]),
+                              child: Image.asset(pathImage + img[i]),
                             ),
                           ),
                         ),

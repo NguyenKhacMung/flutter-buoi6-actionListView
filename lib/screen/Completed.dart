@@ -29,7 +29,7 @@ class _CompletedState extends State<Completed> {
               height: 60,
             ),
             Image.asset(
-              "assets/images/Success.png",
+              pathImage + "Success.png",
               width: 114,
               height: 114,
               fit: BoxFit.cover,
@@ -119,7 +119,7 @@ class _CompletedState extends State<Completed> {
                               child: Row(
                                 children: [
                                   Image.asset(
-                                    "assets/images/im1.png",
+                                    pathImage + "im1.png",
                                     width: 60,
                                     height: 60,
                                     fit: BoxFit.cover,

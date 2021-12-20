@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         child: Stack(
           children: [
             SingleChildScrollView(
+              controller: ScrollController(),
               child: Column(
                 children: [
                   Container(
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.fromLTRB(26, 60, 26, 20),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/images/bg.png"),
+                        image: AssetImage(pathImage + "bg.png"),
                         alignment: Alignment(-1, 0),
                       ),
                       color: Color(0xff4AA366),
@@ -101,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: [
                         // Image.asset(
-                        //   "assets/images/Chart.png",
+                        //   pathImage +"Chart.png",
                         //   width: 125,
                         //   height: 125,
                         //   fit: BoxFit.cover,
@@ -147,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                                 child: InkWell(
                                   onTap: () {},
                                   child: Image.asset(
-                                    "assets/images/chart2.png",
+                                    pathImage + "chart2.png",
                                     // width: 60,
                                     // height: 62,
                                     // fit: BoxFit.cover,
@@ -205,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Row(
                                         children: [
-                                          Image.asset("assets/images/img1.png"),
+                                          Image.asset(pathImage + "img1.png"),
                                           SizedBox(
                                             width: 10,
                                           ),
@@ -300,7 +301,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             ClipOval(
                               child: Image.asset(
-                                "assets/images/im1.png",
+                                pathImage + "im1.png",
                                 width: 50,
                                 height: 50,
                                 fit: BoxFit.cover,
@@ -372,7 +373,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/images/address.png"),
+                            Image.asset(pathImage + "address.png"),
                             SizedBox(
                               width: 12,
                             ),
@@ -385,7 +386,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             Spacer(),
-                            Image.asset("assets/images/time2.png"),
+                            Image.asset(pathImage + "time2.png"),
                             SizedBox(
                               width: 12,
                             ),
@@ -408,105 +409,108 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            DraggableScrollableSheet(
-                minChildSize: 0.2,
-                maxChildSize: 0.7,
-                initialChildSize: 0.3,
-                builder: (BuildContext context, scrollController) {
-                  return Container(
-                    padding: EdgeInsets.symmetric(horizontal: 18),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(40),
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromRGBO(0, 0, 0, 0.05),
-                          spreadRadius: 0,
-                          blurRadius: 30,
-                          offset: Offset(0, -15),
+            SizedBox.expand(
+              child: DraggableScrollableSheet(
+                  minChildSize: 0.2,
+                  maxChildSize: 0.7,
+                  initialChildSize: 0.3,
+                  builder: (BuildContext context, scrollController) {
+                    return Container(
+                      padding: EdgeInsets.symmetric(horizontal: 18),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.vertical(
+                          top: Radius.circular(40),
                         ),
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(top: 15, bottom: 23),
-                          width: 81,
-                          height: 6,
-                          decoration: BoxDecoration(
-                            color: Color(0xffDFE4EC),
-                            borderRadius: BorderRadius.circular(32),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color.fromRGBO(0, 0, 0, 0.05),
+                            spreadRadius: 0,
+                            blurRadius: 30,
+                            offset: Offset(0, -15),
                           ),
-                        ),
-                        Expanded(
-                          child: ListView.builder(
-                              controller: scrollController,
-                              scrollDirection: Axis.vertical,
-                              itemCount: 3,
-                              itemBuilder: (BuildContext context, int index) {
-                                // final items = item[index];
-                                return Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Kampanyalar",
-                                      style: TextStyle(
-                                        color: Color(0xff2E2D38),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 21,
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.vertical(
-                                        top: Radius.circular(
-                                          20,
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 15, bottom: 23),
+                            width: 81,
+                            height: 6,
+                            decoration: BoxDecoration(
+                              color: Color(0xffDFE4EC),
+                              borderRadius: BorderRadius.circular(32),
+                            ),
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                                controller: scrollController,
+                                scrollDirection: Axis.vertical,
+                                itemCount: 3,
+                                itemBuilder: (BuildContext context, int index) {
+                                  // final items = item[index];
+                                  return Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Kampanyalar",
+                                        style: TextStyle(
+                                          color: Color(0xff2E2D38),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      child: Image.asset(
-                                        "assets/images/img2.png",
-                                        width: double.infinity,
-                                        height: 144,
-                                        fit: BoxFit.cover,
+                                      SizedBox(
+                                        height: 21,
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 15,
-                                    ),
-                                    Text(
-                                      "Lorem Ipsum",
-                                      style: TextStyle(
-                                        color: Color(0xff2E2D38),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(
+                                            20,
+                                          ),
+                                        ),
+                                        child: Image.asset(
+                                          pathImage + "img2.png",
+                                          width: double.infinity,
+                                          height: 144,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 9,
-                                    ),
-                                    Text(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet gravida quam aliquam aenean fermentum non accumsan.",
-                                      style: TextStyle(
-                                        color: Color(0xff2E2D38),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
+                                      SizedBox(
+                                        height: 15,
                                       ),
-                                    ),
-                                    SizedBox(
-                                      height: 23,
-                                    ),
-                                  ],
-                                );
-                              }),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
+                                      Text(
+                                        "Lorem Ipsum",
+                                        style: TextStyle(
+                                          color: Color(0xff2E2D38),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 9,
+                                      ),
+                                      Text(
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet gravida quam aliquam aenean fermentum non accumsan.",
+                                        style: TextStyle(
+                                          color: Color(0xff2E2D38),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 23,
+                                      ),
+                                    ],
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+            ),
           ],
         ),
       ),
